@@ -8,7 +8,14 @@ const ContactItem = ({ contact, onDeleteContact }) => {
   return (
     <li className={styles.ContactItem}>
       <span>
-        {name}: {number}
+        {name}:
+        <a
+          className={styles.phoneNumber}
+          href={'tel:' + number}
+          aria-label="Call"
+        >
+          {number}
+        </a>
       </span>
       <button className={styles.contactBtn} onClick={() => onDeleteContact(id)}>
         Delete

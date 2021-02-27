@@ -3,8 +3,10 @@ import PropTypes from 'prop-types';
 
 import styles from './ContactList.module.scss';
 
-const ContactList = ({ contacts, onDeleteContact }) => {
-  return (
+const ContactList = ({ contacts, onDeleteContact }) =>
+  contacts.length === 0 ? (
+    <p className={styles.notification}>Contact book is empty</p>
+  ) : (
     <ul className={styles.ContactList}>
       {contacts.map(contact => {
         const { id } = contact;
@@ -19,7 +21,6 @@ const ContactList = ({ contacts, onDeleteContact }) => {
       })}
     </ul>
   );
-};
 
 ContactList.defaultProps = {
   contacts: [],
